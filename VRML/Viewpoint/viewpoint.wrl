@@ -1,0 +1,30 @@
+#VRML V2.0 utf8
+
+Shape {
+
+	geometry Cone {
+		height 2
+		side TRUE
+	}
+	appearance Appearance {
+		material Material {
+			diffuseColor .8 .51 .09
+			specularColor .92 .43 .01
+			ambientIntensity .117
+			shininess .4
+		}
+	}
+
+}
+
+Viewpoint {
+
+	position 0 10 0
+	orientation 1 0 0 -1.57
+}
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+Axis { }

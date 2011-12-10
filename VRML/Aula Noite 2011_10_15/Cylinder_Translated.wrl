@@ -1,0 +1,26 @@
+#VRML V2.0 utf8
+
+Transform 
+{
+	children DEF s Shape {
+		geometry Cylinder 
+		{ 
+			radius 0.5 
+			height 4
+			bottom FALSE
+		}
+		appearance Appearance 
+		{
+			material Material
+			{
+				diffuseColor 1 0 0
+			}
+		}
+	}
+	translation	-4 0 0
+}
+
+Transform {
+	children USE s
+	translation	4 0 0
+}

@@ -1,0 +1,149 @@
+#VRML V2.0 utf8
+
+NavigationInfo { headlight FALSE type ["EXAMINE", "WALK", "ANY"] }
+Viewpoint {
+  position 90 20 90
+  orientation -0.3 1.2 0 0.7
+  description "foo"
+}
+Viewpoint {
+  orientation 0.3434219405871803 0.9253045840739315 -0.16085023287239472 0.9371661049080698
+  position 100 0 100
+  description "Grupo 0: Vista de canto, em baixo"
+}
+Viewpoint {
+  orientation 0.0926924164127159 0.8358112564838607 -0.5411355278250009 1.117330454271221
+  position 100 0 100
+  description "Grupo 0: Vista de canto, em baixo (v2)"
+}
+
+DirectionalLight {
+  color 1 1 1
+  direction -1 -1 -1
+  intensity 0
+  ambientIntensity 1
+}
+
+# Chão
+Shape {
+  geometry ElevationGrid {
+    xDimension 100
+    zDimension 100
+    xSpacing 1
+    zSpacing 1
+    height 0
+  }
+  appearance Appearance { material Material { } }
+}
+
+
+PROTO Poste [
+
+  field SFVec3f position 50 0 50
+  field SFColor corLuz 1 1 1
+  field SFColor color 1 1 1
+
+] 
+
+{
+
+  Group {
+    children [
+
+      # Candeeiro (centrado na base de 1x1)
+      Transform {
+        translation IS position
+        children 
+        [
+
+          # Poste (1x1x30)
+          Transform {
+            translation 0 15 0
+            children Shape { 
+              geometry Box { size 2 30 2 }
+              appearance Appearance { material Material { } }
+            }
+          }
+          # Suporte da lâmpada
+          Transform {
+            translation 2.5 29 0
+            children Shape {
+              geometry Box { size 4 2 2 }
+              appearance Appearance { material Material { } }
+            }
+          }
+          # lâmpada
+          Transform {
+            translation 3 28.3 0
+            children Shape {
+              geometry Sphere { radius 1 }
+              appearance Appearance { material DEF LampMaterial Material { emissiveColor 0 0 0 } }
+            }
+          }
+          # Lampada (spotlight)
+          DEF LampLight SpotLight { 
+            location 3 28 0
+            direction 0 -1 0
+            color IS corLuz
+            cutOffAngle 0.6
+            beamWidth 0.3
+            on FALSE
+          }
+          # Interruptor
+          Transform {
+            translation 1 15 0
+            children [
+              DEF LightSwitch TouchSensor { }
+              Shape {
+                geometry Box { size 0.2 1 1 }
+                appearance Appearance { material Material { emissiveColor 1 1 0 } }
+              }
+            ]
+          }
+        ]
+      }
+      # Estado do candeeiro
+      DEF LampScript Script {
+        # Estado (On/off)
+        field SFBool lampState FALSE
+        eventIn SFBool changeState
+        eventOut SFBool stateChanged
+        # Cor
+        field SFColor corOn  IS corLuz
+        field SFColor corOff 0 0 0
+        eventOut SFColor colorChanged
+
+        url "javascript:
+
+  
+        function changeState(val, timestamp) {
+    
+          if(val == FALSE) return;
+
+          lampState = !lampState;
+          //if(lampState == TRUE) lampState = FALSE;
+          //else lampState = TRUE;
+
+          stateChanged = lampState;
+          colorChanged = stateChanged ? corOn : corOff;
+  
+        }
+
+        "
+
+      }
+    ]
+    ROUTE LightSwitch.isActive TO LampScript.changeState
+    ROUTE LampScript.stateChanged TO LampLight.on
+    ROUTE LampScript.colorChanged TO LampMaterial.set_emissiveColor
+  }
+}
+
+
+
+Poste { corLuz 1 0 0 position 00 0 50 }
+Poste { corLuz 0 1 0 position 20 0 50 }
+Poste { corLuz 0 0 1 position 40 0 50 }
+Poste { corLuz 1 1 1 position 60 0 50 }
+Poste { corLuz 1 1 1 position 80 0 50 }
+

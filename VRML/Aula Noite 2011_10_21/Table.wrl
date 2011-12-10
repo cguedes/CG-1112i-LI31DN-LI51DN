@@ -1,0 +1,222 @@
+#VRML V2.0 utf8
+
+PROTO Table 
+[
+	field SFVec3f position 0 0 0
+]
+{
+	Transform {
+		translation	IS position
+		children Transform {
+			translation	0.5 0.875 0.25
+			#scale 1 1 4
+
+			children [
+				# Tampo
+				Transform 
+				{
+					children Shape { 
+						geometry DEF table-top Box { size 1.0 0.5 0.15 }
+						appearance DEF	table-appearance Appearance { material Material { diffuseColor 0.8 0.521 0.247 } }
+				   }
+					rotation 1 0 0 1.5707963267948966192313216916398
+				}
+				# Perna
+				DEF table-leg-transformed Transform 
+				{
+					children Shape { 
+						geometry DEF	table-leg Box { size 0.8 0.1 0.1  }
+						appearance USE table-appearance 
+					}
+					rotation 0 0 1 1.5707963267948966192313216916398
+					translation	-.35 -0.475 -0.1
+				}
+				# outras Perna
+				Transform { 
+					children USE table-leg-transformed
+					translation	0.7 0 0 
+	    		}
+				Transform { 
+					children USE table-leg-transformed
+					translation	0.7 0 .2 
+	    		}
+				Transform { 
+					children USE table-leg-transformed
+					translation	0 0 .2 
+	    		}
+			]
+		}
+	}
+}
+
+Table { position +0 0 0 }
+Table { position +2 0 0 }
+Table { position -2 0 0 }
+
+Table { position +0 0 -2 }
+Table { position +2 0 -2 }
+Table { position -2 0 -2 }
+
+
+########################################################################
+# Chão
+########################################################################
+Shape {
+	geometry Box { size 50 .1 50 }
+	appearance Appearance { material Material { }}
+}
+
+
+########################################################################
+# Billboard (árvore)
+#
+#  - objecto cuja orientação depende da posição do avatar
+########################################################################
+
+#Billboard {
+#	axisOfRotation 0 1 0
+#	children Transform {
+#		translation	0 .75 3
+#		children Shape {
+#			geometry Box { size 1.5 1.5 0 }
+#			appearance Appearance { 
+#				texture	ImageTexture {
+#					url	"tree.png"
+#				}
+#				material Material { }
+#			}
+#		}
+#	}
+#}		 ~
+
+Transform {
+	translation	0 .75 3
+	children Billboard {
+		axisOfRotation 0 1 0
+		children Shape {
+			geometry Box { size 1.5 1.5 0 }
+			appearance Appearance { 
+				texture	ImageTexture {
+					url	"tree.png"
+				}
+				material Material { }
+			}
+		}
+	}
+}
+
+########################################################################
+# LOD
+########################################################################
+
+LOD	{
+
+	range [4 10]
+	level [
+		Shape { geometry Sphere { radius .4 } appearance Appearance { material Material {  
+			diffuseColor .32 .54 .26
+			specularColor .46 .46 .46
+			ambientIntensity .0933
+			shininess .51
+		}} },
+
+		Shape { geometry Sphere { radius .4 } appearance Appearance { material Material {  
+			diffuseColor .54 .05 .25
+			specularColor .81 .77 .75
+			ambientIntensity .487
+			shininess .83
+		}} },
+		Shape { geometry Sphere { radius .4 } appearance Appearance { material Material {  
+			diffuseColor .33 .34 .6
+			specularColor .29 .29 .29
+			ambientIntensity .103
+			shininess .79
+		}} }
+
+	
+	]
+}
+
+
+
+########################################################################
+# Viewpoint
+########################################################################
+
+Viewpoint {
+	position 0 5 10
+	orientation	1 0 0 -.3
+	description	"Front"
+}
+
+
+Viewpoint {
+	position 0 0 10
+	description	"Front"
+}
+
+
+Viewpoint {
+	position 0 10 0
+	orientation	1 0 0 -1.57
+	fieldOfView	0.785398
+	description	"Top"
+}
+
+
+########################################################################
+# NavigationInfo
+########################################################################
+
+#NavigationInfo {
+#	headlight TRUE
+#	speed 10
+#	avatarSize [0.25, 1.6, 0.75]
+#	#type ["WALK", "ALL"]
+#    visibilityLimit 0
+#}
+
+########################################################################
+# Fog
+########################################################################
+
+#Fog	{
+#	fogType	"LINEAR"
+#	color 1 1 1
+#	visibilityRange	15
+#}
+
+
+
+########################################################################
+# "Sky" box
+########################################################################
+
+Background {
+	frontUrl	"zneg.png"
+	backUrl		"zpos.png"
+	topUrl		"ypos.png"
+	bottomUrl	"yneg.png"
+	leftUrl		"xpos.png"
+	rightUrl	"xneg.png"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+Transform { 
+	children Axis { } 
+	scale	0.25 0.25 0.25 
+}

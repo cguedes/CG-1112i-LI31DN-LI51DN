@@ -1,0 +1,83 @@
+#VRML V2.0 utf8
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+Transform { 
+	children Axis { } 
+	scale	0.25 0.25 0.25 
+}
+
+
+########################################################################
+# Spheres
+########################################################################
+
+PROTO SingleSphere 
+[
+	field SFVec3f position 0 0 0
+]
+{
+	Group {
+		children [
+			DEF	app Appearance { material Material { 
+				diffuseColor .38 .38 .42
+				specularColor .53 .53 .53
+				ambientIntensity .0933
+				shininess .93
+			}}
+			Transform {
+				translation	IS position
+				children Shape { geometry Sphere { radius .5 } appearance USE app }
+			}
+		]
+	}
+}
+
+DEF	sphereRow Group {
+	children [
+		SingleSphere { position -4.5 0 1.5 }
+		SingleSphere { position -1.5 0 1.5 }
+		SingleSphere { position +1.5 0 1.5 }
+		SingleSphere { position +4.5 0 1.5 }
+	]
+}
+
+Transform { translation	0 0 3 children USE sphereRow }
+Transform { translation	0 0 -3 children USE sphereRow }
+Transform { translation	0 0 -6 children USE sphereRow }
+
+########################################################################
+# Viewpoint & NavigationInfo
+########################################################################
+
+Viewpoint {
+	position 0 15 0
+	orientation	1 0 0 -1.57
+}
+NavigationInfo {
+	headlight FALSE
+}
+
+########################################################################
+# Lights
+########################################################################
+
+PointLight
+{
+	on FALSE
+	color 1 1 0
+}
+
+DirectionalLight 
+{
+	on FALSE
+	color 1 1 0
+}
+
+SpotLight {
+	on TRUE
+	color 1 1 0
+	location 0 0 10
+}

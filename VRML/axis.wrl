@@ -1,0 +1,87 @@
+#VRML V2.0 utf8  
+
+PROTO Single_Axis
+[
+	field SFColor color 1 1 1
+	field SFRotation rotation 0 0 1 0
+	field MFString axisName [""]
+	field SFVec3f textTranslation 0 0 0
+]
+{
+	Group { # Contém o eixo (rodado) e o texto
+		children [
+		# Eixo
+		Transform {
+			rotation IS	rotation
+			children
+				Group {
+					children [
+						Transform  { 
+							translation 0 1 0
+							children
+								Shape {
+									appearance Appearance { material Material { diffuseColor IS	color } }
+									geometry Cylinder { height 2 radius 0.05 }
+								}
+							}
+						Transform {
+							translation	0 2 0
+							children 
+								Shape {
+									appearance Appearance {	material Material { diffuseColor IS color } }
+									geometry Cone { bottomRadius 0.1 height 0.2 }
+								}
+							}
+						Transform {
+								children 
+									Shape {
+										appearance Appearance { material Material { diffuseColor IS	color } }
+										geometry Cylinder { height 20 radius 0.01 }
+									}
+
+							}
+						]
+				}
+			}
+		# Texto
+		Transform {
+			translation	IS textTranslation
+			children
+			Shape { 
+				appearance Appearance { material Material { diffuseColor IS color } }
+				geometry Text { string IS axisName fontStyle FontStyle { size 0.5 } } 
+			}
+		}		] 
+	}	# main group
+	
+}
+
+
+PROTO Axis
+[
+]
+{
+	Group { # Contém o eixo (rodado) e o texto
+
+		children [
+			# Centro do eixo de coordenadas
+			Shape { geometry Sphere	{ radius 0.1 } }
+
+			# Eixo dos XX [RED] (horizontal - direita)
+			Transform {
+				children Single_Axis { color 1 0 0 axisName "X" textTranslation 2.1 0 0 rotation 0 0 1 -1.57  } 
+			}
+
+			# Eixo dos YY [GREEN] (vertical - cima)
+			Transform {
+				children Single_Axis { color 0 1 0 axisName "Y" textTranslation 0 2.1 0 }
+			}
+
+			# Eixo dos ZZ [BLUE] (na direcção do utilizador)
+			Transform {
+				children Single_Axis { color 0 0 1 axisName "Z" textTranslation 0 0 2.1 rotation 1 0 0 1.57  }
+			}
+		]
+
+	}
+}

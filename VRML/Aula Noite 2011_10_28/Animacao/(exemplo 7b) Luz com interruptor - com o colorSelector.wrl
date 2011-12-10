@@ -1,0 +1,116 @@
+#VRML V2.0 utf8
+
+NavigationInfo { headlight FALSE type ["EXAMINE", "WALK", "ANY"] }
+Viewpoint {
+  position 90 20 90
+  orientation -0.3 1.2 0 0.7
+}
+
+DirectionalLight {
+  color 1 1 1
+  direction -1 -1 -1
+  intensity 10
+  ambientIntensity 0.1
+}
+
+DEF LampLight SpotLight { 
+  location 53 28 50
+  direction 0 -1 0
+  color 1 1 1
+  cutOffAngle 0.5
+  beamWidth 0.2
+  on FALSE
+}
+
+# Material da lâmpada
+DEF LampMaterial Material { emissiveColor 0 0 0 }
+
+# Chão
+Shape {
+  geometry ElevationGrid {
+    xDimension 100
+    zDimension 100
+    xSpacing 1
+    zSpacing 1
+    height 0
+  }
+  appearance Appearance { material Material { } }
+}
+
+# Candeeiro (centrado na base de 1x1)
+Transform {
+  translation 50 0 50
+  children 
+  [
+    # Poste (1x1x30)
+    Transform {
+      translation 0 15 0
+      children Shape { 
+        geometry Box { size 2 30 2 }
+        appearance Appearance { material Material { } }
+      }
+    }
+    # Suporte da lâmpada
+    Transform {
+      translation 2.5 29 0
+      children Shape {
+        geometry Box { size 4 2 2 }
+        appearance Appearance { material Material { } }
+      }
+    }
+    # lâmpada
+    Transform {
+      translation 3 28.3 0
+      children Shape {
+        geometry Sphere { radius 1 }
+        appearance Appearance { material USE LampMaterial }
+      }
+    }
+    # Interruptor
+    Transform {
+      translation 1 15 0
+      children [
+        DEF LightSwitch TouchSensor { }
+        Shape {
+          geometry Box { size 0.2 1 1 }
+          appearance Appearance { material Material { emissiveColor 1 1 0 } }
+        }
+      ]
+    }
+  ]
+}
+
+
+DEF ToogleButton Script {
+  field    SFBool on FALSE
+  eventIn  SFBool set_active
+  eventOut SFBool on_changed
+  url "javascript:
+   function set_active( set, timestamp ) {
+     if(set == FALSE) return;
+     if(on == TRUE)   on = FALSE;
+     else             on = TRUE;
+     on_changed = on;
+  }"
+}
+
+DEF ColorSelector Script {
+  field    SFColor onColor  1 1 1 # ON - cor branca
+  field    SFColor offColor 0 0 0 # OFF - cor preta
+  field    SFBool on FALSE
+  eventIn  SFBool set_selection
+  eventOut SFColor color_changed
+  
+  url "javascript: 
+    function set_selection(b, timestamp) {
+      if(b == TRUE) color_changed = onColor;
+      else          color_changed = offColor;
+    }
+  "
+}
+
+ROUTE LightSwitch.isActive TO ToogleButton.set_active
+ROUTE ToogleButton.on_changed TO LampLight.on
+ROUTE ToogleButton.on_changed TO ColorSelector.set_selection
+ROUTE ColorSelector.color_changed TO LampMaterial.emissiveColor
+#ROUTE ColorSelector.color_changed TO LampLight.color

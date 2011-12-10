@@ -1,0 +1,77 @@
+#VRML V2.0 utf8
+
+DEF	table-top Box { size 1.0 0.5 0.15 }
+DEF	table-leg Box { size 0.8 0.1 0.1  }
+
+DEF	table-appearance Appearance { material Material { diffuseColor 0.8 0.521 0.247 } }
+
+
+Transform {
+	translation	0.5 0.875 0.25
+	#scale 1 1 4
+
+	children [
+		# Tampo
+		Transform 
+		{
+			children Shape { geometry USE table-top appearance USE table-appearance }
+			rotation 1 0 0 1.5707963267948966192313216916398
+		},
+		# Perna
+		DEF table-leg-transformed Transform 
+		{
+			children Shape { geometry USE table-leg appearance USE table-appearance }
+			rotation 0 0 1 1.5707963267948966192313216916398
+			translation	-.35 -0.475 -0.1
+		},
+		# outras Perna
+		Transform { 
+			children USE table-leg-transformed
+			translation	0.7 0 0 
+	    },
+		Transform { 
+			children USE table-leg-transformed
+			translation	0.7 0 .2 
+	    },
+		Transform { 
+			children USE table-leg-transformed
+			translation	0 0 .2 
+	    }
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+#EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+#Transform { 
+#	children Axis { } 
+#	scale	0.25 0.25 0.25 
+#}

@@ -1,0 +1,40 @@
+#VRML V2.0 utf8
+
+DEF Bola Transform {
+  children Shape {
+    geometry Sphere { }
+    appearance Appearance { 
+      material DEF BolaMaterial Material { diffuseColor 1 1 0 } 
+    }
+  }
+}
+
+DEF PosInterpolator PositionInterpolator {
+  key      [0.0    0.5    1.0]
+  keyValue [0 0 0, 0 4 0, 0 0 0]
+}
+
+DEF ColorInterpolator ColorInterpolator {
+  key      [0.0    0.5    1.0]
+  keyValue [1 0 0, 0 1 0, 0 0 1]
+}
+
+DEF Timer TimeSensor {
+  cycleInterval 2.0
+  loop          TRUE
+}
+
+ROUTE Timer.fraction_changed TO PosInterpolator.set_fraction
+#ROUTE Timer.fraction_changed TO ColorInterpolator.set_fraction
+
+ROUTE PosInterpolator.value_changed TO Bola.translation
+ROUTE ColorInterpolator.value_changed TO BolaMaterial.set_diffuseColor
+
+
+# Extra effects
+Background { 
+	skyColor [0 0 1, .5 0 .5, 1 0 0] 
+	skyAngle [1.31, 1.57] 
+	groundColor [1 0 0, 0 .5 .2, 0 .8 .3] 	
+  groundAngle [1.31, 1.57] 
+}

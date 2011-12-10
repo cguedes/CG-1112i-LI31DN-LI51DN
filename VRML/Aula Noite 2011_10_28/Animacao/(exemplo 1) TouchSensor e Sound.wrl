@@ -1,0 +1,20 @@
+#VRML V2.0 utf8
+
+Group {
+  children [
+    Shape {
+      geometry Box { }
+      appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    }
+    DEF TS TouchSensor { }    
+  ]
+}
+
+
+Sound {        
+ source DEF Som AudioClip {
+   url "Explode.wav"
+ }
+}
+
+ROUTE TS.touchTime TO Som.startTime
