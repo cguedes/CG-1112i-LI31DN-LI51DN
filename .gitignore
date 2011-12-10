@@ -41,3 +41,22 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+
+## Resharper
+*ReSharper.user
+*.user
+*/_ReSharper.*/
+
+
+###############################################
+# OpenGL folder ignores
+######
+OpenGL/Demos/Debug
+OpenGL/Demos/*/Debug
+OpenGL/Demos/*.sdf
+OpenGL/Demos/*.suo
+OpenGL/Demos/ipch/*
+OpenGL/Demos/_ReSharper.Demos
+
+
