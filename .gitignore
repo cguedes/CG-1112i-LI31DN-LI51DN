@@ -4,9 +4,15 @@
 *.DS_Store
 *.swp
 *.out
+Thumbs.db
 
 ## Java files
 *.class
+
+## Idea Ignore (Java2D)
+java2D/*/.idea
+java2D/*/*.iml
+java2D/*/out
 
 ## Eclipse Ignore
 *.pydevproject
