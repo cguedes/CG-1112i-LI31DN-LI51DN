@@ -1,0 +1,26 @@
+#VRML V2.0 utf8
+
+Shape
+{
+	geometry Cylinder { 
+		radius 1
+		height 0.5
+		bottom FALSE
+		top	FALSE
+	}
+	appearance Appearance
+	{
+		material Material {
+			diffuseColor 1 0.2 0.2
+		}
+	}
+}
+
+Shape {
+	geometry Text {
+		string "VRML"
+	}
+}
+
+
+

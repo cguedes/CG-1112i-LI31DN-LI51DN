@@ -1,0 +1,79 @@
+#VRML V2.0 utf8
+PROTO myCone 
+[
+	field SFRotation rotation 0 0 1 0
+	field SFColor diffuseColor 0.8 0.2 0.2
+]
+{
+	Transform 
+	{
+		rotation IS	rotation
+		children Shape 
+		{
+			geometry Cone { height 3 bottomRadius 1 }
+			appearance Appearance { material Material { diffuseColor IS diffuseColor } }
+		}
+	}
+}
+
+
+myCone { diffuseColor 0.2 0.8 0.2 }
+myCone { rotation 0 0 1  1.57 }
+myCone { rotation 0 0 1 -1.57 }
+myCone { rotation 1 0 0  1.57 }
+myCone { rotation 1 0 0 -1.57 }
+
+
+
+
+######################################################################
+## Viewpoint
+######################################################################
+
+Viewpoint 
+{
+	position 0 0 10
+	description	"Default viewpoint"
+}
+
+
+Viewpoint 
+{
+	position 0 10 0
+	orientation	1 0 0 -1.57
+	description	"TOP viewpoint"
+}
+
+
+Viewpoint 
+{
+	position 0 -10 0
+	orientation	1 0 0 +1.57
+	description	"BOTTOM viewpoint"
+}
+
+
+
+
+######################################################################
+## NavigationInfo
+######################################################################
+
+NavigationInfo
+{
+	headlight TRUE
+	#visibilityLimit	10
+	avatarSize [0.25, 1.6, 0.75]
+	type ["WALK", "EXAMINE"]
+	speed 2
+}
+
+Background {
+	backUrl		"hires-skybox-s01.png"
+	frontUrl	"hires-skybox-s01.png"
+	leftUrl		"hires-skybox-s01.png"
+	rightUrl	"hires-skybox-s01.png"
+	topUrl		"hires-skybox-stop.png"
+	bottomUrl	"hires-skybox-sbottom.png"
+}
+

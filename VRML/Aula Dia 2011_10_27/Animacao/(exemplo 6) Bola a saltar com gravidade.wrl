@@ -1,0 +1,37 @@
+#VRML V2.0 utf8
+
+DEF BallTransform Transform {
+  children Shape { 
+     geometry Sphere {} 
+     appearance Appearance { material Material { diffuseColor 1 1 0 } }
+   }      
+ }
+
+DEF Bouncer Script {
+  field    SFFloat  bounceHeight 4.0   # valor por omissão: 4.0
+  eventIn  SFFloat  set_fraction       # evento de entrada (tempo)
+  eventOut SFVec3f  value_changed      # evento de saída   (posição)
+  url "javascript:
+    function set_fraction( frac, timestamp ) {
+       y = 4.0 *bounceHeight * frac * (1.0 - frac); 
+       value_changed[0] = 0.0;  // X 
+       value_changed[1] = y;    // Y 
+       value_changed[2] = 0.0;  // Z
+    }
+  "
+}
+
+DEF Timer1 TimeSensor { cycleInterval 2 loop TRUE }
+
+ROUTE Timer1.fraction_changed TO Bouncer.set_fraction
+ROUTE Bouncer.value_changed TO BallTransform.set_translation
+
+
+
+# Extra effects
+Background { 
+	skyColor [0 0 1, .5 0 .5, 1 0 0] 
+	skyAngle [1.31, 1.57] 
+	groundColor [1 0 0, 0 .5 .2, 0 .8 .3] 	
+  groundAngle [1.31, 1.57] 
+}

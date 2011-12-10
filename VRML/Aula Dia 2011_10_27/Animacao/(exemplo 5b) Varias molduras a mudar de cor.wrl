@@ -1,0 +1,89 @@
+#VRML V2.0 utf8
+
+DEF Timer1 TimeSensor { cycleInterval 5 startTime -1 loop TRUE }
+DEF Timer2 TimeSensor { cycleInterval 6 startTime -1 loop TRUE }
+DEF Timer3 TimeSensor { cycleInterval 7 startTime -1 loop TRUE }
+
+DEF Rot1 OrientationInterpolator {
+  key [0 0.2 0.4 0.6 0.8 1]
+  keyValue [ 0 0 1 0, 0 0 1 1.256637061, 0 0 1 2.513274123, 0 0 1 3.769911184, 0 0 1 5.026548246, 0 0 1 6.283185307]
+}
+DEF Rot2 OrientationInterpolator {
+  key [0 0.5 1]
+  keyValue [ 0 0 1 0, 0 0 1 3.141592654, 0 0 1 6.283185307]
+}
+DEF Rot3 OrientationInterpolator {
+  key [0 0.2 0.4 0.6 0.8 1]
+  keyValue [ 0 0 1 0, 0 0 1 1.256637061, 0 0 1 2.513274123, 0 0 1 3.769911184, 0 0 1 5.026548246, 0 0 1 6.283185307]
+}
+
+
+PROTO Frame [
+  field SFColor color 1 0 0
+ ]{
+  Shape {
+    geometry Extrusion {
+      crossSection [ 1 1, 1 -1, -1 -1, -1 1, 1 1, 0.9 0.9, -0.9 0.9, -0.9 -0.9, 0.9 -0.9, 0.9 0.9, 1 1]
+      spine [0 0 0, 0 0 -0.1]
+      scale [1 1 0.9 0.9]
+    }
+    appearance Appearance { material Material {  diffuseColor IS color } }
+  }
+}
+
+DEF Frame1 Transform {
+  children [
+    Frame { }
+  ]
+}
+
+DEF Frame2 Transform {
+  translation 0 0 0.2
+  children [
+    Frame { color 0 1 0 }
+  ]
+}
+
+DEF Frame3 Transform {
+  translation 0 0 0.4
+  children [
+    Frame { color 0 0 1 }
+  ]
+}
+
+
+Transform {
+  translation 4 0 0
+  children [
+    Shape {
+      geometry Sphere { radius 0.2 }
+      appearance Appearance {  material DEF Mat Material { diffuseColor 1 0 0 } } 
+    }
+    DEF TouchStart TouchSensor { }
+  ]
+}
+
+
+DEF Color ColorInterpolator {
+  key [0]
+  keyValue [0 1 0]
+}
+
+ROUTE TouchStart.touchTime TO Timer1.startTime
+ROUTE Timer1.fraction_changed TO Rot1.set_fraction
+ROUTE Rot1.value_changed TO Frame1.rotation
+
+ROUTE TouchStart.touchTime TO Timer2.startTime
+ROUTE Timer2.fraction_changed TO Rot2.set_fraction
+ROUTE Rot2.value_changed TO Frame2.rotation
+
+ROUTE TouchStart.touchTime TO Timer3.startTime
+ROUTE Timer3.fraction_changed TO Rot3.set_fraction
+ROUTE Rot3.value_changed TO Frame3.rotation
+
+
+ROUTE TouchStart.touchTime TO Timer1.startTime
+ROUTE Timer1.fraction_changed TO Color.set_fraction
+ROUTE Color.value_changed TO Mat.diffuseColor
+
+

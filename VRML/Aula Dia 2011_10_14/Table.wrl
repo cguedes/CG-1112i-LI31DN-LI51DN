@@ -1,0 +1,93 @@
+#VRML V2.0 utf8
+
+Transform {
+	translation	0 -.5 0
+	children [
+		### TAMPO
+		######################################################
+		Shape {
+			geometry Box { size 10 1 6 }
+			appearance DEF tableAppearance Appearance
+			{
+				#material Material {	diffuseColor 0.2 .05 .05 }
+				texture	ImageTexture {
+					url	["http://www.bittbox.com/wp-content/uploads/2008/04/free_hires_wood_texture_5.jpg"]
+				}
+
+			}
+		}
+			
+		### PERNAs
+		######################################################
+		Transform {
+			translation	-4.5 -3 2.5
+			children [
+				DEF TableLeg Shape {
+					geometry Box { size 0.5 5 0.5 }
+					appearance USE tableAppearance
+				}
+			]
+		},
+		Transform {
+			translation	+4.5 -3 -2.5
+			children USE TableLeg
+		}
+		,
+		Transform {
+			translation	-4.5 -3 -2.5
+			children USE TableLeg
+		},
+		Transform {
+			translation	+4.5 -3 +2.5
+			children USE TableLeg
+		}
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+#EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+#Axis { }

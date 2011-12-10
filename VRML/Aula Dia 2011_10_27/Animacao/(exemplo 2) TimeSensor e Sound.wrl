@@ -1,0 +1,16 @@
+#VRML V2.0 utf8
+
+DEF TS TimeSensor {
+   cycleInterval 3
+   loop TRUE
+ }
+
+
+Sound {
+ source DEF Som AudioClip {
+   url "Explode.wav"
+ }
+}
+
+
+ROUTE TS.cycleTime TO Som.startTime

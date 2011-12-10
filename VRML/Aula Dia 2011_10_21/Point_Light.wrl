@@ -1,0 +1,80 @@
+#VRML V2.0 utf8
+
+PROTO Sh [ 
+	field SFVec3f position 0 0 0 
+] 
+{
+	Transform {
+		translation	IS position
+		
+		children
+		Shape
+		{
+			geometry Sphere { }
+			appearance Appearance { 
+				material Material { 
+					# transparency 0.5
+			    } 
+			}
+		}
+	}
+}
+
+DEF ShLine Group {
+	children [
+		Sh { position 3 0 1  }
+		Sh { position 6 0 1  }
+		Sh { position 9 0 1  }
+
+		Sh { position -3 0 1 }
+		Sh { position -6 0 1 }
+		Sh { position -9 0 1 }
+	]
+}
+
+Transform { translation	0 0  3 children USE ShLine }
+Transform { translation	0 0  6 children USE ShLine }
+Transform { translation	0 0 -3 children USE ShLine }
+Transform { translation	0 0 -6 children USE ShLine }
+
+
+########################################################################
+# Iluminação
+########################################################################
+PointLight {
+	color 1 1 1
+	attenuation	2 0 0
+	on TRUE
+}
+
+DirectionalLight {
+	color 1 1 1
+	on FALSE
+}
+
+SpotLight {
+	color 1 1 1
+	cutOffAngle	0.785398
+	attenuation	2 0 0
+	on FALSE
+}
+
+
+########################################################################
+# Camera e Navegação
+########################################################################
+Viewpoint {
+	position 0 20 0
+	orientation	1 0 0 -1.57
+}
+
+NavigationInfo {
+	headlight FALSE
+}
+
+
+########################################################################
+# Eixo de coordenadas do mundo
+########################################################################
+EXTERNPROTO	Axis [ ] "../axis.wrl#Axis"
+Axis { }

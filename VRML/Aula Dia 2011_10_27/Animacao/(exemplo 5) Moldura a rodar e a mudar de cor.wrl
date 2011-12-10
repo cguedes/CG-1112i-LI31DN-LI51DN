@@ -1,0 +1,47 @@
+#VRML V2.0 utf8
+
+# Proto da moldura
+PROTO Frame 
+[
+  exposedField SFColor color 1 1 1
+]
+{
+  Shape {
+    geometry Extrusion {
+      crossSection [ 1 1, 1 -1, -1 -1, -1 1, 1 1, 0.9 0.9, -0.9 0.9, -0.9 -0.9, 0.9 -0.9, 0.9 0.9, 1 1]
+      spine [0 0 0, 0 0 -0.1]
+      scale [1 1 0.9 0.9]
+    }
+    appearance Appearance { material Material {  diffuseColor IS color } }
+  }
+}
+
+DEF FrameTransform Transform {
+  children [
+    DEF FrameInstance Frame { color 1 1 1 }
+    DEF TouchStart TouchSensor { }
+  ]
+}
+
+
+DEF Timer1 TimeSensor { 
+  cycleInterval 5
+  loop TRUE  
+}
+
+DEF RotIInterpolator OrientationInterpolator {
+  key [0 0.2 0.4 0.6 0.8 1]
+  keyValue [ 0 0 1 0, 0 0 1 1.256637061, 0 0 1 2.513274123, 0 0 1 3.769911184, 0 0 1 5.026548246, 0 0 1 6.283185307]
+}
+DEF ColIterpolator ColorInterpolator {
+  key      [0.00   0.16   0.32   0.50   0.68   0.84   1.00]
+  keyValue [1 1 1, 1 0 0, 1 1 0, 0 1 0, 0 1 1, 0 0 1, 1 1 1]
+}
+
+
+ROUTE TouchStart.touchTime TO Timer1.startTime
+ROUTE Timer1.fraction_changed TO RotIInterpolator.set_fraction
+ROUTE Timer1.fraction_changed TO ColIterpolator.set_fraction
+ROUTE RotIInterpolator.value_changed TO FrameTransform.rotation
+ROUTE ColIterpolator.value_changed TO FrameInstance.color
+

@@ -1,0 +1,65 @@
+#VRML V2.0 utf8
+
+#DEF CONE Shape 
+#{
+#	geometry Cone { height 3 bottomRadius 1 }
+#	appearance Appearance { material Material { diffuseColor 0.8 0.2 0.2 } }
+#}
+
+#Transform {
+#	rotation 1 0 0 3.1415
+#	translation	0 -1 0
+#	children USE CONE
+#}
+
+#Transform {
+#	rotation 0 0 1 1.57
+#	children USE CONE
+#}
+
+
+#Transform {
+#	rotation 0 0 1 -1.57
+#	children USE CONE
+#}
+
+#Transform {
+#	rotation 1 0 0 -1.57
+#	children USE CONE
+#}
+
+
+
+
+PROTO myCone 
+[
+	field SFRotation rotation 0 0 1 0
+	field SFColor diffuseColor 0.8 0.2 0.2
+]
+{
+	Transform 
+	{
+		rotation IS	rotation
+		children Shape 
+		{
+			geometry Cone { height 3 bottomRadius 1 }
+			appearance Appearance { material Material { diffuseColor IS diffuseColor } }
+		}
+	}
+}
+
+
+myCone { diffuseColor 0.2 0.8 0.2 }
+myCone { rotation 0 0 1  1.57 }
+myCone { rotation 0 0 1 -1.57 }
+myCone { rotation 1 0 0  1.57 }
+myCone { rotation 1 0 0 -1.57 }
+
+
+
+
+
+
+
+
+
