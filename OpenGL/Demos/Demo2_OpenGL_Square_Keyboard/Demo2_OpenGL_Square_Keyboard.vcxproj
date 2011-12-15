@@ -17,6 +17,7 @@
     <ProjectGuid>{3AAF0B07-A477-4246-8501-89A91F5BCC56}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Demo2_OpenGL_Square_Keyboard</RootNamespace>
+    <ProjectName>02_OpenGL_Square_Keyboard</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

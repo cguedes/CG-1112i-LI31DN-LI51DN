@@ -14,7 +14,7 @@
     <ProjectGuid>{36E723B6-D083-44C3-9610-E919C74FA74A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Demo1_OpenGL_Square</RootNamespace>
-    <ProjectName>Demo1_OpenGL_Square</ProjectName>
+    <ProjectName>01_OpenGL_Square</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

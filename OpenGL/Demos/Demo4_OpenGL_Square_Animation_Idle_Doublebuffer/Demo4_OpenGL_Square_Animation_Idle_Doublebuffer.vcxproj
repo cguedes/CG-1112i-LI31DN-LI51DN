@@ -14,7 +14,7 @@
     <ProjectGuid>{DA071D69-C53C-4854-AD0E-D799DC642BCA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Demo3_OpenGL_Square_Animation_Idle_Doublebuffer</RootNamespace>
-    <ProjectName>Demo4_OpenGL_Square_Animation_Idle_Doublebuffer</ProjectName>
+    <ProjectName>04_OpenGL_Square_Animation_Idle_Doublebuffer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

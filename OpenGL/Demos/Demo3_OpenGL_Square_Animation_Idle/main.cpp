@@ -53,6 +53,7 @@ void onIdle()
 {
 	static const float DELTA_ANGLE = 1;
 	angle += DELTA_ANGLE;
+	if(angle == 360) angle = 0;
 	glutPostRedisplay();
 }
 

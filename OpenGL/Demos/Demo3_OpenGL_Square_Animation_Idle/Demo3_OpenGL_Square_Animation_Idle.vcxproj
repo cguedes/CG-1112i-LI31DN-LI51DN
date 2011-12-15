@@ -17,6 +17,7 @@
     <ProjectGuid>{495EEA94-A5D8-4BD9-99AA-911270FD9DEE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Demo3_OpenGL_Square_Animation_Idle</RootNamespace>
+    <ProjectName>03_OpenGL_Square_Animation_Idle</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
