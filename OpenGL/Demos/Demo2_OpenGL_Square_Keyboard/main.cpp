@@ -1,6 +1,4 @@
-#include <windows.h>
-#include <gl\GL.h>
-#include <gl\glut.h>
+#include <GL/glut.h>
 #include <stdio.h>
 
 float x = .25, y = .25;
