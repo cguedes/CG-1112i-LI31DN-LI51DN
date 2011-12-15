@@ -2,14 +2,10 @@
 #include <stdio.h>
 #include <Windows.h>
 
-#ifdef _WINDOWS_
-
 int getMillisecs() 
 {
 	return timeGetTime();
 }
-
-#endif 
 
 float fps = 100;
 float getFpsMilisecs() { return 1000.0 / fps; }
