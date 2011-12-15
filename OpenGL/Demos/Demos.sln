@@ -1,21 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo1_OpenGL_Square", "Demo1_OpenGL_Square\Demo1_OpenGL_Square.vcxproj", "{36E723B6-D083-44C3-9610-E919C74FA74A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_OpenGL_Square", "Demo1_OpenGL_Square\Demo1_OpenGL_Square.vcxproj", "{36E723B6-D083-44C3-9610-E919C74FA74A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo2_OpenGL_Square_Keyboard", "Demo2_OpenGL_Square_Keyboard\Demo2_OpenGL_Square_Keyboard.vcxproj", "{3AAF0B07-A477-4246-8501-89A91F5BCC56}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_OpenGL_Square_Keyboard", "Demo2_OpenGL_Square_Keyboard\Demo2_OpenGL_Square_Keyboard.vcxproj", "{3AAF0B07-A477-4246-8501-89A91F5BCC56}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo3_OpenGL_Square_Animation_Idle", "Demo3_OpenGL_Square_Animation_Idle\Demo3_OpenGL_Square_Animation_Idle.vcxproj", "{495EEA94-A5D8-4BD9-99AA-911270FD9DEE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_OpenGL_Square_Animation_Idle", "Demo3_OpenGL_Square_Animation_Idle\Demo3_OpenGL_Square_Animation_Idle.vcxproj", "{495EEA94-A5D8-4BD9-99AA-911270FD9DEE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo4_OpenGL_Square_Animation_Idle_Doublebuffer", "Demo4_OpenGL_Square_Animation_Idle_Doublebuffer\Demo4_OpenGL_Square_Animation_Idle_Doublebuffer.vcxproj", "{DA071D69-C53C-4854-AD0E-D799DC642BCA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_OpenGL_Square_Animation_Idle_Doublebuffer", "Demo4_OpenGL_Square_Animation_Idle_Doublebuffer\Demo4_OpenGL_Square_Animation_Idle_Doublebuffer.vcxproj", "{DA071D69-C53C-4854-AD0E-D799DC642BCA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo5_OpenGL_Square_Animation_Timer", "Demo5_OpenGL_Square_Animation_Timer\Demo5_OpenGL_Square_Animation_Timer.vcxproj", "{05A52A94-5211-4263-986D-D891600FEE8E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_OpenGL_Square_Animation_Timer", "Demo5_OpenGL_Square_Animation_Timer\Demo5_OpenGL_Square_Animation_Timer.vcxproj", "{05A52A94-5211-4263-986D-D891600FEE8E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo6_OpenGL_Teapot_Ortho", "Demo6_OpenGL_Teapot_Ortho\Demo6_OpenGL_Teapot_Ortho.vcxproj", "{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_OpenGL_Teapot_Ortho", "Demo6_OpenGL_Teapot_Ortho\Demo6_OpenGL_Teapot_Ortho.vcxproj", "{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL 2D Demos", "OpenGL 2D Demos", "{2F6355E1-8E0C-418C-98A0-5E66F3E51978}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL 3D Demos", "OpenGL 3D Demos", "{970D80EF-ACD7-4FDF-BF7E-F458204F8B57}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_OpenGL_Square_Animation_Timer", "2D_OpenGL_Square_Animation_Timer\2D_OpenGL_Square_Animation_Timer.vcxproj", "{14980D73-0B95-468C-8D2C-AB9FA943390B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,16 +49,21 @@ Global
 		{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}.Debug|Win32.Build.0 = Debug|Win32
 		{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}.Release|Win32.ActiveCfg = Release|Win32
 		{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}.Release|Win32.Build.0 = Release|Win32
+		{14980D73-0B95-468C-8D2C-AB9FA943390B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14980D73-0B95-468C-8D2C-AB9FA943390B}.Debug|Win32.Build.0 = Debug|Win32
+		{14980D73-0B95-468C-8D2C-AB9FA943390B}.Release|Win32.ActiveCfg = Release|Win32
+		{14980D73-0B95-468C-8D2C-AB9FA943390B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{36E723B6-D083-44C3-9610-E919C74FA74A} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
 		{3AAF0B07-A477-4246-8501-89A91F5BCC56} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
 		{495EEA94-A5D8-4BD9-99AA-911270FD9DEE} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
 		{DA071D69-C53C-4854-AD0E-D799DC642BCA} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
 		{05A52A94-5211-4263-986D-D891600FEE8E} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
+		{36E723B6-D083-44C3-9610-E919C74FA74A} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
+		{14980D73-0B95-468C-8D2C-AB9FA943390B} = {2F6355E1-8E0C-418C-98A0-5E66F3E51978}
 		{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD} = {970D80EF-ACD7-4FDF-BF7E-F458204F8B57}
 	EndGlobalSection
 EndGlobal
