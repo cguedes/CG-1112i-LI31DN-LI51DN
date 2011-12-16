@@ -1,0 +1,27 @@
+Configurações para criar um novo projecto (aplicação Win32 Console Aplication)
+
+1. Criar o projecto dentro da solution CGGL.
+2. Configurar os seguintes parametros:
+
+<Solution Properties> 
+    <Common Properties>
+        <Project Dependencies>
+            Project: Seleccionar o projecto da aplicação
+            Dependes on: assinalar CGGL_Engine
+
+
+<Project Properties>
+    <Configuration Properties>
+        <C/C++>
+            Aditional Include Directories: "$(SolutionDir)dependencies\include"
+            <Preprocessor>
+                Acrescentar em [Preprocessor Definitions]: ;_CRT_SECURE_NO_WARNINGS
+
+        <Linker>
+            Aditional Library Directories: "$(SolutionDir)dependencies\lib"	     
+            <Input>	
+                Aditional Dependencies: "$(SolutionDir)dependencies\lib\cggl_engine.lib"
+
+        <Build Events>
+            <Post-Build Event>
+                Command Line: copy "$(SolutionDir)dependencies\bin\*.*" "$(OutDir)"
