@@ -8,26 +8,30 @@ float getFpsMilisecs() { return 1000.0 / fps; }
 float angle = 0;
 float rotationPerSecond = 90;
 
-bool isOrtho = true;
+bool isOrtho = true, projectionChanged = true;
 int width, height;
 
 void drawAxis();
 
 void onDisplay(void)
 {
-	// change the current projection to match the same aspect ratio of the window
-	glMatrixMode(GL_PROJECTION);
-	double factor = width / (double)height;
-
-	glLoadIdentity();							// clear current matrix content
-
-	if(isOrtho) 
+	if(projectionChanged)
 	{
-		glOrtho(-factor*2, factor*2, -2, 2, -5, 5);		// set the ortographic projection with a 4 x 4 size when the aspect ratio is 1:1
-	}
-	else
-	{
-		gluPerspective(60, factor, .1, 10);				// fovy = 60 with an aspect ratio of 1:1 and near = .1 and far = 10
+		// change the current projection to match the same aspect ratio of the window
+		glMatrixMode(GL_PROJECTION);
+		double factor = width / (double)height;
+
+		glLoadIdentity();							// clear current matrix content
+
+		if(isOrtho) 
+		{
+			glOrtho(-factor*2, factor*2, -2, 2, -5, 5);		// set the ortographic projection with a 4 x 4 size when the aspect ratio is 1:1
+		}
+		else
+		{
+			gluPerspective(60, factor, .1, 10);				// fovy = 60 with an aspect ratio of 1:1 and near = .1 and far = 10
+		}
+		projectionChanged = false;
 	}
 	
 	// change back to the model-view matrix
@@ -115,8 +119,8 @@ void onTimer(int lastMillisecs)
 
 void onKeyboardUp(unsigned char key, int _, int __)
 {
-	if(key == 'o') isOrtho = true;
-	else if(key == 'p') isOrtho = false;
+	if(key == 'o') { isOrtho = true; projectionChanged = true; }
+	else if(key == 'p') { isOrtho = false; projectionChanged = true; }
 
 	glutPostRedisplay();
 }
