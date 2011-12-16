@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{7f069865-7aff-44fa-94a7-09ae3fbf5b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{695a7ff5-d4c9-472f-b016-3b48afdfc062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\Bin">
+      <UniqueIdentifier>{e03b92d9-d9cb-492c-b93f-f07170fccf28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\Include">
+      <UniqueIdentifier>{60084231-8411-454a-bbc9-2d2d572ce1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\Include\GL">
+      <UniqueIdentifier>{675aa04d-df21-4ed7-ac41-7c5e6f4d1bc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\Lib">
+      <UniqueIdentifier>{98239a92-ef90-496e-a553-52fbc5636b23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\App.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FPSCounter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLTexture.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MathUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model3DS.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SkyBox.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextWriter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\App.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FPSCounter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Globals.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLTexture.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MathUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model3DS.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ObjModel.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyBox.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureLoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextWriter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\gl\glaux.h">
+      <Filter>Dependencies\Include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\gl\glew.h">
+      <Filter>Dependencies\Include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\gl\glext.h">
+      <Filter>Dependencies\Include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dependencies\include\gl\glut.h">
+      <Filter>Dependencies\Include\GL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="src\TextureLoader.htm">
+      <Filter>src</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\bin\glew32.dll">
+      <Filter>Dependencies\Bin</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\bin\glut32.dll">
+      <Filter>Dependencies\Bin</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\lib\GlAux.Lib">
+      <Filter>Dependencies\Lib</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\lib\glew32.lib">
+      <Filter>Dependencies\Lib</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\lib\glut.def">
+      <Filter>Dependencies\Lib</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\Dependencies\lib\glut32.lib">
+      <Filter>Dependencies\Lib</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>
