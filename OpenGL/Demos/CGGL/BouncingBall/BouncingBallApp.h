@@ -18,7 +18,11 @@
 #include <GL/glut.h>
 #include <cggl/App.h>
 
+#include "Ball.h"
+
 class BouncingBallApp : public cggl::App {
+
+	Ball* ball;
 
 public: 
   void CreateScene();

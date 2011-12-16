@@ -28,6 +28,8 @@ public:
 
   void Update(int deltaTimeMilis);
   void Draw();
+
+  cggl::Vector3 getPosition() { return position; }
 };
 
 #endif //_BALL_H_
