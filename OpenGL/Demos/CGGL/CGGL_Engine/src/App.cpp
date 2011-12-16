@@ -81,6 +81,8 @@ namespace cggl {
     //  NOTA: A aplicação fica bloqueada aqui
     //        A partir deste ponto são chamadas as funções de update, reshape e draw
 	  glutMainLoop();
+
+    this->ClearObjects();
   }
 
 #pragma endregion
@@ -177,7 +179,13 @@ namespace cggl {
   }
 
   void App::ClearObjects(){
-    this->root = NULL;
+
+    Object *obj = this->root, *next;
+	  while(obj != NULL)
+    {
+      next = obj->next;
+      delete obj;
+    }
   }
 
 #pragma endregion
