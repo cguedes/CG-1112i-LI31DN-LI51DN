@@ -11,9 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{04E095E7-9FA9-4EFA-B70E-A250FCF6C0FD}</ProjectGuid>
+    <ProjectGuid>{5324A5DD-09B6-4A85-BBF8-4A6DEDDA1F89}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Demo6_OpenGL_Teapot_Ortho</RootNamespace>
+    <RootNamespace>OpenGL_3D_OpenGL_Teapot_Projections</RootNamespace>
+    <ProjectName>OpenGL_3D_OpenGL_Teapot_Projections</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
