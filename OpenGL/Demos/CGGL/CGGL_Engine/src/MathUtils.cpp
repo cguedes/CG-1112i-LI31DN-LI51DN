@@ -16,9 +16,12 @@ namespace cggl {
   }
   const Vector3& Vector3::Normalize() {
     float mag = Magnitude();
-    x /= mag;
-    y /= mag;
-    z /= mag;
+    if(mag != 0)
+    {
+      x /= mag;
+      y /= mag;
+      z /= mag;
+    }
     return *this;
   }
 
@@ -79,7 +82,17 @@ namespace cggl {
   Vector3 operator*(float f, const Vector3 &v) { return Vector3(f*v.x, f*v.y, f*v.z); }
   Vector3 operator/(float f, const Vector3 &v) { return Vector3(f/v.x, f/v.y, f/v.z); }
 
+  // constantes (em relação ao plano XY - 2D)
+  const Vector3 Vector3::UP = Vector3(0, 1, 0);
+  const Vector3 Vector3::DOWN = Vector3(0, -1, 0);
+  const Vector3 Vector3::LEFT = Vector3(-1, 0, 0);
+  const Vector3 Vector3::RIGHT = Vector3(1, 0, 0);
+  const Vector3 Vector3::FRONT = Vector3(0, 0, -1);
+  const Vector3 Vector3::BACK = Vector3(0, 0, 1);
+
 }
+
+
 
 
 

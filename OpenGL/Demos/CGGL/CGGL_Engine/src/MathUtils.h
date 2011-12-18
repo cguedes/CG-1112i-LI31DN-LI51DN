@@ -57,7 +57,13 @@ namespace cggl {
 
     Vector3 &operator-()                { x *= -1; y *= -1; z *= -1; return *this;      }
 
-
+    // constantes (em relação ao plano XY - 2D)
+    static const Vector3 UP;
+    static const Vector3 DOWN;
+    static const Vector3 LEFT;
+    static const Vector3 RIGHT;
+    static const Vector3 FRONT;
+    static const Vector3 BACK; 
   };
 
   // Overloads onde o operando Vector3 surge do lado direito da expressão
