@@ -2,6 +2,7 @@
 #include <cggl/App.h>
 #include <cggl/FPSCounter.h>
 #include <cggl/ObjModel.h>
+#include <cggl/SkyBox.h>
 
 #include "SnowmanApp.h"
 #include "Axis.h"
@@ -21,6 +22,7 @@ void SnowmanApp::CreateScene()
     RegisterObject( snowman = new Snowman(Vector3(0, 0, 0)) );
     //RegisterObject( new Car(Vector3(0, 0, 0)) );
 
+    RegisterObject( new SkyBox("skybox/sky") );
     RegisterObject( new WallWithTexture(Vector3(0, 0, -10), Vector3(0, 0, 1), 50, 10, "textures/brickWall.jpg") );
 
     // Setup default camera (#4)
