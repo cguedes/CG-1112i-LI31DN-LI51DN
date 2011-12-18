@@ -28,13 +28,14 @@ public:
   void Draw(){
     Object::Draw();
 
-    //glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);
 
     glPushMatrix();
-    float diffuseColor[3] = { 0.0, 0.5, 0.0 };
+    const static float diffuseColor[3] = { 0.0, 0.5, 0.0 };
+    const static float ambientColor[3] = { 0.0, 0.5, 0.0 };
     glColor3f(diffuseColor[0], diffuseColor[1], diffuseColor[2]);
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuseColor);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, diffuseColor);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambientColor);
     glNormal3f(0, 1, 0);
     glBegin(GL_QUADS);
       glVertex3f(+size, y, +size);
@@ -44,7 +45,7 @@ public:
     glEnd();
     glPopMatrix();
 
-  //  glDisable(GL_LIGHTING);
+    glDisable(GL_LIGHTING);
   }
 
 };

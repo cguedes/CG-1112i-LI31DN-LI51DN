@@ -4,28 +4,24 @@ using namespace cggl;
 
 Ball::Ball(Vector3 pos, float rad): position(pos), radius(rad){
 
-  velocity = Vector3(0,20,0);
+  velocity = Vector3(1,20,0);
 }
-
-//void Ball::Update(int deltaTimeMilis){
-//  Object::Update(deltaTimeMilis);
-//  double t = deltaTimeMilis/(float)1000;
-//
-//}
 
 void Ball::Draw(){
   Object::Draw();
-    glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-    glPushMatrix();
-    float diffuseColor[3] = { 0.8, 0, 0 };
-    glColor3f(diffuseColor[0], diffuseColor[1], diffuseColor[2]);
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+
+  glPushMatrix();
+    const static float diffuseColor[3] = { 0.8, 0, 0 };
+    glColor3fv(diffuseColor);
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuseColor);
 
     glTranslated(position.x, position.y, position.z);
     glutSolidSphere(radius, 30, 30);
-    glPopMatrix();
-    glDisable(GL_LIGHTING);
+  glPopMatrix();
+
+  glDisable(GL_LIGHTING);
 }
 
 
