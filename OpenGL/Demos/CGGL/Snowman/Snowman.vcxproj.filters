@@ -30,6 +30,9 @@
     <ClInclude Include="Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WallWithTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SnowmanApp.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Car.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WallWithTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

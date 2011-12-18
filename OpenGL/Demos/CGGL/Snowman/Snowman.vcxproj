@@ -83,6 +83,7 @@
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Snowman.cpp" />
     <ClCompile Include="SnowmanApp.cpp" />
+    <ClCompile Include="WallWithTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="Snowman.h" />
     <ClInclude Include="SimplePlane.h" />
     <ClInclude Include="SnowmanApp.h" />
+    <ClInclude Include="WallWithTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="models\al.mtl" />

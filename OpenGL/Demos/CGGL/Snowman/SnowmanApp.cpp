@@ -8,6 +8,7 @@
 #include "SimplePlane.h"
 #include "Snowman.h"
 #include "Car.h"
+#include "WallWithTexture.h"
 
 using namespace cggl;
   
@@ -20,6 +21,7 @@ void SnowmanApp::CreateScene()
     RegisterObject( snowman = new Snowman(Vector3(0, 0, 0)) );
     //RegisterObject( new Car(Vector3(0, 0, 0)) );
 
+    RegisterObject( new WallWithTexture(Vector3(0, 0, -10), Vector3(0, 0, 1), 50, 10, "textures/brickWall.jpg") );
 
     // Setup default camera (#4)
     App::Camera->LookAt(Vector3(10, 5, 10), Vector3(0,1,0), Vector3::UP);
