@@ -9,10 +9,11 @@ Configurações para criar um novo projecto (aplicação Win32 Console Aplication)
             Project: Seleccionar o projecto da aplicação
             Dependes on: assinalar CGGL_Engine
 
+Criar pelo menos um ficheiro C++ no projecto para a opção de configuração <C/C++> estar disponivel
 
 <Project Properties>
     <Configuration Properties>
-        <C/C++>
+        <C/C++> 
             Aditional Include Directories: "$(SolutionDir)dependencies\include"
             <Preprocessor>
                 Acrescentar em [Preprocessor Definitions]: ;_CRT_SECURE_NO_WARNINGS
@@ -20,7 +21,7 @@ Configurações para criar um novo projecto (aplicação Win32 Console Aplication)
         <Linker>
             Aditional Library Directories: "$(SolutionDir)dependencies\lib"	     
             <Input>	
-                Aditional Dependencies: "$(SolutionDir)dependencies\lib\cggl_engine.lib"
+                Aditional Dependencies: "cggl_engine.lib"
 
         <Build Events>
             <Post-Build Event>
